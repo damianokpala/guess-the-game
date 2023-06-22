@@ -6,12 +6,37 @@ import random
 
 print(logo)
 print("Welcome to guess the number game")
+level = input("Select difficulty: Hard or Easy: ").lower()
 
-user_guess = input("Guess a number between 1 and 100")
+if level == "easy":
+  life = 5
+  print("You are in an easy level with 5 lifes")
+elif level == "hard":
+  life = 10
+  print("You are in a difficult mode and you have 10 lives ❤️")
 
-rand_num = random.randint(1, 1, 101)
+rand_num = random.randint(1, 101)
 
-print(rand_num, user_guess)
+keep_playing = True
+
+while keep_playing:
+  user_guess = int(input("Guess a number between 1 and 100: "))
+
+  if user_guess == rand_num:
+     print("Hurray 🎉🎉, you won")
+     keep_playing = False
+  elif user_guess > rand_num:
+    print("Too high")
+    life = life - 1
+    print(f"You have {life} life left")
+  elif user_guess < rand_num:
+    print("Too low")
+    life = life - 1
+    print(f"You have {life} life left")
+    
+  if life == 0:
+    print("Sorry, you lose")
+    keep_playing = False
 
 # Allow the player to submit a guess for a number between 1 and 100.
 # Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
