@@ -2,10 +2,16 @@
 
 # Include an ASCII art logo.
 from art import logo
+import random
 
 print(logo)
 print("Welcome to guess the number game")
 
+user_guess = input("Guess a number between 1 and 100")
+
+rand_num = random.randint(1, 1, 101)
+
+print(rand_num, user_guess)
 
 # Allow the player to submit a guess for a number between 1 and 100.
 # Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
