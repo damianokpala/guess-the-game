@@ -24,7 +24,7 @@ while keep_playing:
 
   if user_guess == rand_num:
      print("Hurray 🎉🎉, you won")
-     keep_playing = False
+     keep_playing == False
   elif user_guess > rand_num:
     print("Too high")
     life = life - 1
@@ -36,7 +36,18 @@ while keep_playing:
     
   if life == 0:
     print("Sorry, you lose")
-    keep_playing = False
+    try_again = input("Do you want to continue playing: yes or no").lower()
+    if try_again == "no":
+       keep_playing = False
+    else:
+      level = input("Select difficulty: Hard or Easy: ").lower()
+      if level == "easy":
+        life = 5
+        print("You are in an easy level with 5 lifes")
+      elif level == "hard":
+        life = 10
+        print("You are in a difficult mode and you have 10 lives ❤️")
+      keep_playing = True
 
 # Allow the player to submit a guess for a number between 1 and 100.
 # Check user's guess against actual answer. Print "Too high." or "Too low." depending on the user's answer. 
